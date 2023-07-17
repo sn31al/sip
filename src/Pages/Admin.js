@@ -1,11 +1,11 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import React from "react";
 import { db } from "../Firebase";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 export default function Admin() {
   const docref = collection(db, "VendorLive");
   const [docs, loading, error] = useCollectionData(docref);
-
+  console.log(loading);
   console.log(docs);
   console.log(error);
 

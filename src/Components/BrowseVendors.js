@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BrowseVendors() {
+  const navigate = useNavigate();
+
   const Data = [
     {
       image:
         "https://images.pexels.com/photos/3856039/pexels-photo-3856039.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Name: "photographer",
+      Name: "Photography",
     },
     {
       image:
@@ -13,8 +16,7 @@ export default function BrowseVendors() {
       Name: "Decors",
     },
     {
-      image:
-        "https://media.timeout.com/images/105835076/image.jpg",
+      image: "https://media.timeout.com/images/105835076/image.jpg",
       Name: "Lights",
     },
     {
@@ -25,12 +27,12 @@ export default function BrowseVendors() {
     {
       image:
         "https://images.pexels.com/photos/1458282/pexels-photo-1458282.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Name: "florist",
+      Name: "Decors",
     },
     {
       image:
         "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=600",
-      Name: "caterer",
+      Name: "Catering",
     },
   ];
 
@@ -44,7 +46,12 @@ export default function BrowseVendors() {
           {Data.map((_, index) => {
             return (
               <React.Fragment key={index}>
-                <div className="text-center duration-300 ease-in-out shadow-xl cursor-pointer shadow-slate-100 hover:scale-110">
+                <div
+                  className="text-center duration-300 ease-in-out shadow-xl cursor-pointer shadow-slate-100 hover:scale-110"
+                  onClick={() => {
+                    navigate(`/feild/${_.Name}`);
+                  }}
+                >
                   <img
                     src={_.image}
                     className="md:w-[27vw] rounded-t-lg"

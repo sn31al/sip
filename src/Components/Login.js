@@ -2,7 +2,6 @@ import React, { useId, useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../Firebase";
 import { useNavigate } from "react-router-dom";
-import { RxCross2 } from "react-icons/rx";
 
 const Login = () => {
   const UserJwt = useId();

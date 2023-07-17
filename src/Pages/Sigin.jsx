@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-
+import img from "../assets/bg1.jpg";
 export default function Signin() {
   const User = localStorage.getItem("UserName");
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ export default function Signin() {
         ref={parallaxRef}
         className="relative w-screen h-screen parallax-container"
         style={{
-          backgroundImage: "url('https://wallpapercave.com/wp/wp7488275.jpg')",
+          backgroundImage: `url(${img})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -58,7 +58,7 @@ export default function Signin() {
         <div className="flex justify-center text-white font-bold">
           <TypeAnimation
             sequence={words}
-            style={{ fontSize: '2.5em', textAlign: 'center' }}
+            style={{ fontSize: "2.5em", textAlign: "center" }}
             repeat={Infinity}
             repeatDelay={5000}
             speed={200}

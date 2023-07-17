@@ -237,7 +237,7 @@ export default function AddProfile() {
             <div className="my-10 ">
               <div className="flex flex-col justify-center space-y-1.5">
                 <label>Price</label>
-                <select
+                <input
                   value={profileCard.Price}
                   onChange={(e) => {
                     setProfileCard({
@@ -246,14 +246,7 @@ export default function AddProfile() {
                     });
                   }}
                   className="border-[1.5px] w-[37vw] mx-auto border-slate-500 px-10 outline-none py-2.5 rounded-lg"
-                >
-                  <option value=""></option>
-                  <option value="PhotoGraphy">$10</option>
-                  <option value="Lights">$80</option>
-                  <option value="DJ">$20</option>
-                  <option value="Decor">$60</option>
-                  <option value="Decor">$50</option>
-                </select>
+                />
               </div>
               <div className="flex flex-col justify-center space-y-1.5 my-10">
                 <label>Social Links</label>
@@ -269,62 +262,64 @@ export default function AddProfile() {
                   }}
                 />
               </div>
-              <div className="flex flex-col items-center justify-center ml-32">
-                <FiUploadCloud
-                  onClick={() => {
-                    inputref.current.click();
-                  }}
-                  size={65}
-                  color="grey"
-                  className={` ${
-                    blobimg.image !== null ? "hidden" : null
-                  }  my-3`}
-                />
-                <input
-                  type="file"
-                  placeholder="Image"
-                  required
-                  value={profileCard.Path}
-                  onChange={handleImageUpload}
-                  hidden
-                  ref={inputref}
-                />
-                {blobimg.image !== null ? (
-                  <img
-                    src={blobimg}
+              <div className="flex gap-x-8 items-center text-center">
+                <div className="flex flex-col items-center justify-center ml-32">
+                  <FiUploadCloud
+                    onClick={() => {
+                      inputref.current.click();
+                    }}
+                    size={65}
+                    color="grey"
                     className={` ${
-                      blobimg ? "block" : "hidden"
-                    }  max-w-[40vw] sm:max-w-[17vw] mx-auto`}
-                    alt=""
+                      blobimg.image !== null ? "hidden" : null
+                    }  my-3`}
                   />
-                ) : null}
-                <p className="text-sm text-slate-500">
-                  Upload Verification Certificate
-                </p>
-              </div>
-              <div className="flex flex-col items-center justify-center ml-32">
-                <AiOutlineFilePdf
-                  onClick={() => {
-                    pdfinputref.current.click();
-                  }}
-                  size={65}
-                  color="grey"
-                  className={`my-6`}
-                />
-                <input
-                  type="file"
-                  placeholder="Image"
-                  required
-                  accept=".pdf"
-                  hidden
-                  value={profileCard.pdf}
-                  onChange={handleFileChange}
-                  ref={pdfinputref}
-                />
-                {uploadPDF?.name}
-                <p className="text-sm text-slate-500">
-                  {uploadPDF ? uploadPDF.name : "Upload business Details"}
-                </p>
+                  <input
+                    type="file"
+                    placeholder="Image"
+                    required
+                    value={profileCard.Path}
+                    onChange={handleImageUpload}
+                    hidden
+                    ref={inputref}
+                  />
+                  {blobimg.image !== null ? (
+                    <img
+                      src={blobimg}
+                      className={` ${
+                        blobimg ? "block" : "hidden"
+                      }  max-w-[40vw] sm:max-w-[17vw] mx-auto`}
+                      alt=""
+                    />
+                  ) : null}
+                  <p className="text-sm text-slate-500">
+                    Upload Verification Certificate
+                  </p>
+                </div>
+                <div className="flex flex-col items-center justify-center ml-32">
+                  <AiOutlineFilePdf
+                    onClick={() => {
+                      pdfinputref.current.click();
+                    }}
+                    size={65}
+                    color="grey"
+                    className={`my-6`}
+                  />
+                  <input
+                    type="file"
+                    placeholder="Image"
+                    required
+                    accept=".pdf"
+                    hidden
+                    value={profileCard.pdf}
+                    onChange={handleFileChange}
+                    ref={pdfinputref}
+                  />
+                  {uploadPDF?.name}
+                  <p className="text-sm text-slate-500">
+                    {uploadPDF ? uploadPDF.name : "Upload business Details"}
+                  </p>
+                </div>
               </div>
             </div>
             <button
